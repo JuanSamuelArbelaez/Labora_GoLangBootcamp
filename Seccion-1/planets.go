@@ -3,16 +3,29 @@ package main
 import "fmt"
 
 func main() {
-	var planetsMoons = make(map[string]any)
+	var planetsMoons = map[string]int{
+		"Mercury":0,
+		"Venus":0,
+		"Earth":1,
+		"Mars":2,
+		"Jupiter":95,
+		"Saturn":146,
+		"Uranus":27,
+		"Neptune":14,
+	}
 
-	planetsMoons["Mercury"] = "Unknown"
-	planetsMoons["Venus"] = "Unknown"
-	planetsMoons["Earth"] = 1
-	planetsMoons["Mars"] = 2
+	printPlanet(planetsMoons, "Mercury")
+	printPlanet(planetsMoons, "Venus")
+	printPlanet(planetsMoons, "Earth")
+	printPlanet(planetsMoons, "Mars")
+	printPlanet(planetsMoons, "Jupiter")
+	printPlanet(planetsMoons, "Saturn")
+	printPlanet(planetsMoons, "Uranus")
+	printPlanet(planetsMoons, "Neptune")
+}
 
-	var planetName = "Mercury"
-
-	if numberOfMoons, ok := planetsMoons[planetName]; ok {
+func printPlanet(planets map[string]int, planetName string){
+	if numberOfMoons, ok := planets[planetName]; ok {
 		fmt.Println(planetName, ":", numberOfMoons)
 	} else {
 		panic("No planet with name <" + planetName + ">")
