@@ -1,0 +1,34 @@
+Práctica: Algoritmo = Sentencias + Datos (Expresiones)
+
+Juan Samuel Arbeláez Rocha
+
+1. ¿Cuál es la diferencia entre contenido de una variable y nombre de la misma?
+
+    La diferencia entre el contenido de una variable y el nombre de la misma es que el nombre es el identificador utilizado para referirse a la variable, mientras que el contenido es el valor almacenado en la variable.
+
+2. ¿Cuál es la diferencia entre una variable, una constante? ¿Que tienen en común? ¿y que relación tiene con un literal?
+
+    Una variable es un espacio de almacenamiento con un nombre asociado, cuyo valor puede cambiar durante la ejecución del programa. Una constante, en cambio, es un valor que no puede cambiar durante la ejecución. Ambos comparten la propiedad de representar datos. Un literal es una representación literal de un valor, como un número o una cadena de texto, y puede ser tanto una constante como un valor asignado a una variable.
+
+3. ¿En qué consiste una expresión?
+
+    Una expresión es una combinación de valores, variables y operadores que se evalúa para producir un resultado.
+
+4. Complete los huecos
+    - Los operadores pueden ser utilizados en la construcción de <expresiones>, que devuelven un único valor.
+    - Las expresiones están presentes en casi todas las <instrucciones>
+    - El siguiente fragmento de código es un ejemplo de una expresión <aritmética>: 1 * 2 * 3
+    - Las sentencias para el intérprete/compilador son más o menos equivalentes a las <oraciones> en el lenguaje natural para los humanos.
+
+5. ¿Qué elementos aparecen en una asignación?
+
+    En una asignación, aparecen el nombre de la variable, el operador de asignación (← en este caso) y la expresión cuyo resultado se asigna a la variable.
+
+6. Haga, por favor, un seguimiento de las siguientes asignaciones, escribiendo el valor que va asumiendo la variable involucrada en cada asignación.
+
+    X ← 0 {X es igual a 0}
+    X ← X + 4 {X es igual a su valor actual (0)+ 4, es decir 4}
+    X ← X + X – X * X {X es igual a su valor actual (4) + su valor actual (4) - la multiplicacion entre su valor actual (4) y su valor actual (4). Es decir, -8}
+    X ← X % 4 {X es igual al modulo de su valor actual (-8) y 4. Es decir, 0}
+    X ← (x + 4) / 2 {X es igual a la division entre su valor actual (0) sumado con 4, y 2. Es decir, 4/2 -> 2}
+    X es igual a 2
