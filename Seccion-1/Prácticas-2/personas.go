@@ -1,4 +1,4 @@
-package Prácticas_2
+package main
 
 import (
 "fmt"
@@ -75,6 +75,29 @@ func buscarPersona(personas []Persona, valorBuscado string) *Persona {
 	return nil
 }
 
+// Función para ordenar personas según el criterio elegido por el usuario
+func ordenarPersonas(personas []Persona, criterio int) []Persona {
+	switch criterio {
+	case 1: // Ordenar por nombre
+		sort.Slice(personas, func(i, j int) bool {
+			return personas[i].Nombre < personas[j].Nombre
+		})
+	case 2: // Ordenar por edad
+		sort.Slice(personas, func(i, j int) bool {
+			return personas[i].Edad < personas[j].Edad
+		})
+	case 3: // Ordenar por altura
+		sort.Slice(personas, func(i, j int) bool {
+			return personas[i].Altura < personas[j].Altura
+		})
+	case 4: // Ordenar por peso
+		sort.Slice(personas, func(i, j int) bool {
+			return personas[i].Peso < personas[j].Peso
+		})
+	}
+	return personas
+}
+
 func main(){
 	var personas []Persona
 
@@ -83,6 +106,7 @@ func main(){
 		fmt.Println("1. Registrar personas")
 		fmt.Println("2. Buscar persona")
 		fmt.Println("3. Listar personas")
+		fmt.Println("4. Ordenar lista de personas")
 		fmt.Println("5. Salir")
 		fmt.Print("Ingrese la opción: ")
 
@@ -109,6 +133,22 @@ func main(){
 			// Mostrar personas sin ordenar
 			fmt.Println("Personas sin ordenar:")
 			mostrarPersonas(personas)
+		case 4:
+			// Ordenar lista de personas
+			fmt.Println("Seleccione criterio de ordenamiento:")
+			fmt.Println("1. Por nombre")
+			fmt.Println("2. Por edad")
+			fmt.Println("3. Por altura")
+			fmt.Println("4. Por peso")
+			fmt.Print("Ingrese la opción: ")
+
+			var criterioOrdenamiento int
+			fmt.Scan(&criterioOrdenamiento)
+
+			personasOrdenadas := ordenarPersonas(personas, criterioOrdenamiento)
+
+			fmt.Println("Personas ordenadas:")
+			mostrarPersonas(personasOrdenadas)
 		case 5:
 			// Salir del programa
 			fmt.Println("¡Hasta luego!")
