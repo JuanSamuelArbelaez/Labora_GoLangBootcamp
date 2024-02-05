@@ -53,8 +53,26 @@ func registrarPersonas(personas *[]Persona){
 		fmt.Printf("Ingrese peso de persona %d: ", i+1)
 		fmt.Scan(&peso)
 
+		// Validación de datos
+		if edad < 0 || altura <= 0 || peso <= 0 {
+			panic("Error: Datos ingresados no válidos. La edad debe ser positiva, la altura debe ser mayor a cero y el peso debe ser mayor a cero.")
+			i-- // Repetir la iteración
+			continue
+		}
+
 		*personas = append(*personas, Persona{Nombre: nombre, Edad: edad, Altura: altura, Peso: peso})
 	}
+}
+
+// Función para buscar una persona en el slice
+func buscarPersona(personas []Persona, valorBuscado string) *Persona {
+	for _, p := range personas {
+		if p.Nombre == valorBuscado || fmt.Sprint(p.Edad) == valorBuscado ||
+			fmt.Sprint(p.Altura) == valorBuscado || fmt.Sprint(p.Peso) == valorBuscado {
+			return &p
+		}
+	}
+	return nil
 }
 
 func main(){
@@ -63,6 +81,7 @@ func main(){
 	for {
 		fmt.Println("======= MENÚ =======")
 		fmt.Println("1. Registrar personas")
+		fmt.Println("2. Buscar persona")
 		fmt.Println("5. Salir")
 		fmt.Print("Ingrese la opción: ")
 
@@ -73,6 +92,18 @@ func main(){
 		case 1:
 			// Registro de personas
 			registrarPersonas(&personas)
+		case 2:
+			// Búsqueda de persona
+			fmt.Print("Ingrese el valor a buscar: ")
+			var valorBuscado string
+			fmt.Scan(&valorBuscado)
+
+			personaEncontrada := buscarPersona(personas, valorBuscado)
+			if personaEncontrada != nil {
+				fmt.Printf("Persona encontrada: Nombre: %s, Edad: %d, Altura: %.2f, Peso: %.2f\n", personaEncontrada.Nombre, personaEncontrada.Edad, personaEncontrada.Altura, personaEncontrada.Peso)
+			} else {
+				fmt.Println("Persona no encontrada.")
+			}
 		case 5:
 			// Salir del programa
 			fmt.Println("¡Hasta luego!")
