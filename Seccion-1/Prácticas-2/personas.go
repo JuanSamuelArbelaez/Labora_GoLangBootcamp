@@ -82,6 +82,7 @@ func main(){
 		fmt.Println("======= MENÚ =======")
 		fmt.Println("1. Registrar personas")
 		fmt.Println("2. Buscar persona")
+		fmt.Println("3. Listar personas")
 		fmt.Println("5. Salir")
 		fmt.Print("Ingrese la opción: ")
 
@@ -104,6 +105,10 @@ func main(){
 			} else {
 				fmt.Println("Persona no encontrada.")
 			}
+		case 3:
+			// Mostrar personas sin ordenar
+			fmt.Println("Personas sin ordenar:")
+			mostrarPersonas(personas)
 		case 5:
 			// Salir del programa
 			fmt.Println("¡Hasta luego!")
