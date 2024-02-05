@@ -37,6 +37,26 @@ func mostrarPersonas(personas []Persona) {
 	}
 }
 
+//Función para registrar personas
+func registrarPersonas(personas *[]Persona){
+	for i := 0; i < 5; i++ {
+		var nombre string
+		var edad int
+		var altura, peso float64
+
+		fmt.Printf("Ingrese nombre de persona %d: ", i+1)
+		fmt.Scan(&nombre)
+		fmt.Printf("Ingrese edad de persona %d: ", i+1)
+		fmt.Scan(&edad)
+		fmt.Printf("Ingrese altura de persona %d: ", i+1)
+		fmt.Scan(&altura)
+		fmt.Printf("Ingrese peso de persona %d: ", i+1)
+		fmt.Scan(&peso)
+
+		*personas = append(*personas, Persona{Nombre: nombre, Edad: edad, Altura: altura, Peso: peso})
+	}
+}
+
 func main(){
 
 }
