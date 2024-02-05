@@ -58,5 +58,28 @@ func registrarPersonas(personas *[]Persona){
 }
 
 func main(){
+	var personas []Persona
 
+	for {
+		fmt.Println("======= MENÚ =======")
+		fmt.Println("1. Registrar personas")
+		fmt.Println("5. Salir")
+		fmt.Print("Ingrese la opción: ")
+
+		var opcion int
+		fmt.Scan(&opcion)
+
+		switch opcion {
+		case 1:
+			// Registro de personas
+			registrarPersonas(&personas)
+		case 5:
+			// Salir del programa
+			fmt.Println("¡Hasta luego!")
+			return
+
+		default:
+			fmt.Println("Opción no válida. Por favor, ingrese una opción válida.")
+		}
+	}
 }
