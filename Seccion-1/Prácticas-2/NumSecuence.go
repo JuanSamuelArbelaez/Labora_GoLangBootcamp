@@ -89,5 +89,15 @@ func printArray(arr []int) {
 }
 
 func main() {
-
+	if rand.Intn(2) == 0 {
+		var incSeq NumberSequence = &IncreasingNumbers{}
+		incSeq.Title()
+		incSeq.First30()
+		printArray(incSeq.(*IncreasingNumbers).numbers)
+	} else {
+		var primeSeq NumberSequence = &PrimeNumbers{}
+		primeSeq.Title()
+		primeSeq.First30()
+		printArray(primeSeq.(*PrimeNumbers).numbers)
+	}
 }
