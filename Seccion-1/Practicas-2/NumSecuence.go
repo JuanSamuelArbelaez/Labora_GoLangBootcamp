@@ -1,8 +1,8 @@
 package main
 
 import (
-"fmt"
-"math/rand"
+	"fmt"
+	"math/rand"
 )
 
 type NumberSequence interface {
@@ -89,15 +89,19 @@ func printArray(arr []int) {
 }
 
 func main() {
+	var seq NumberSequence
 	if rand.Intn(2) == 0 {
-		var incSeq NumberSequence = &IncreasingNumbers{}
-		incSeq.Title()
-		incSeq.First30()
-		printArray(incSeq.(*IncreasingNumbers).numbers)
+		seq = &IncreasingNumbers{}
 	} else {
-		var primeSeq NumberSequence = &PrimeNumbers{}
-		primeSeq.Title()
-		primeSeq.First30()
-		printArray(primeSeq.(*PrimeNumbers).numbers)
+		seq = &PrimeNumbers{}
+	}
+
+	seq.Title()
+	seq.First30()
+	switch s := seq.(type) {
+	case *IncreasingNumbers:
+		printArray(s.numbers)
+	case *PrimeNumbers:
+		printArray(s.numbers)
 	}
 }
